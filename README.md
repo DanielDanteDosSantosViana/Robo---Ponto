@@ -1,7 +1,7 @@
 Robo---Ponto
 ============
 
-Projeto de Bater Ponto Automático 
+Projeto Ponto Automático 
 
 
 ##### References
