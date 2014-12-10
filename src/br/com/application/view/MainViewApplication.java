@@ -18,6 +18,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import br.com.application.controller.MainController;
 import br.com.application.infra.ClockRunnable;
 
 
@@ -55,7 +56,11 @@ public class MainViewApplication extends JFrame {
 	  	    getContentPane().add(getCheckAlmocoFim());
 	  	    getContentPane().add(getCheckFim());
 	  	    
+	  	    addListener(chegada);
+	  	    addListener(almocoInicio);
 	  	    addListener(almocoFim);
+	  	    addListener(saida);
+	  	    
 	  	    
 	  	    setLayout(new FlowLayout());  
 	        getContentPane().add(getLblHora());  
@@ -168,7 +173,7 @@ public class MainViewApplication extends JFrame {
 	    public void addListener(final JCheckBox check){
 	    	check.addItemListener(new ItemListener() {
 	    		public void itemStateChanged(ItemEvent e) {
-	    			System.out.println("Checked " + check.isSelected());
+	    			new MainController().executeChangeJChecked(check);
 	    		}
 	    	});
 	    	

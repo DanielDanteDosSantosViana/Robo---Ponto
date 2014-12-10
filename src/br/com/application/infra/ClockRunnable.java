@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.util.Date;
 
 import br.com.application.service.ServicoSelenium;
+import br.com.application.validation.HorarioValido;
 import br.com.application.view.MainViewApplication;
 
 public class ClockRunnable implements Runnable {  
@@ -27,7 +28,7 @@ public class ClockRunnable implements Runnable {
                     public void run() {  
                         view.setHora(new Date()); 
                        
-                        if(view.getLblHora().getText().equals("15:04:00")){
+                        if(new HorarioValido().isHorarioValido(view.getLblHora().getText())){
                         	servicoSelenium.executaServicoSeleium();
                         }
                     }  
