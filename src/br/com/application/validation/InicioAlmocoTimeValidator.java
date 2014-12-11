@@ -6,13 +6,14 @@ public class InicioAlmocoTimeValidator implements TimeValidator{
 
 	private TimeValidator proximo;
 	private final static String  KEY_HORARIO = "almoco";
-	private HorariosDePonto horarios;
 
 	@Override
 	public boolean valida(String horario) {
 		
-		if(horarios.pegaHorario(KEY_HORARIO).getRandomDateInicio().equals(horario)){
-			return false;
+		if(HorariosDePonto.pegaHorario(KEY_HORARIO).getRandomDateInicio().equals(horario) &&
+				HorariosDePonto.pegaHorario(KEY_HORARIO).isHabilitado()){
+		
+			return true;
 		
 		}else{
 			

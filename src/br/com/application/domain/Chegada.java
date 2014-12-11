@@ -17,13 +17,13 @@ public void setHorarioPerfeito(DateFormat horarioPerfeito) {
 @Override
 public String getRandomDateInicio() {
 	// TODO Auto-generated method stub
-	return null;
+	return "";
 }
 
 @Override
 public String getRandomDateFim() {
 	// TODO Auto-generated method stub
-	return null;
+	return "";
 }
 
 @Override
@@ -36,5 +36,16 @@ public String getInicio() {
 public String getFim() {
 	// TODO Auto-generated method stub
 	return null;
+}
+
+@Override
+public boolean isHabilitado() {
+	// TODO Auto-generated method stub
+	return false;
+}
+
+@Override
+public void setHabilitado(boolean habilitado) {
+
 }
 }

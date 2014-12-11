@@ -30,8 +30,10 @@ public class MainController {
 		
 		AbstractCommand comando = commands.get(check.getText());
 		if(comando!=null){
-			comando.run();
+			comando.run(check.isSelected());
 		}
+		
+		
 	}
 
 }

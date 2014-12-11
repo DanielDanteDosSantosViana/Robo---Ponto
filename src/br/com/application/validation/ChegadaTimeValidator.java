@@ -5,14 +5,16 @@ import br.com.application.infra.HorariosDePonto;
 public class ChegadaTimeValidator implements TimeValidator{
 
 	private TimeValidator proximo;
-	private final static String  KEY_HORARIO = "almoco";
-	private HorariosDePonto horarios;
+	private final static String  KEY_HORARIO = "chegada";
+
 	
 	@Override
 	public boolean valida(String horario) {
 		
-		if(horarios.pegaHorario(KEY_HORARIO).getRandomDateInicio().equals(horario)){
-			return false;
+		if(HorariosDePonto.pegaHorario(KEY_HORARIO).getRandomDateInicio().equals(horario) &&
+				HorariosDePonto.pegaHorario(KEY_HORARIO).isHabilitado()){
+			
+			return true;
 		
 		}else{
 			
