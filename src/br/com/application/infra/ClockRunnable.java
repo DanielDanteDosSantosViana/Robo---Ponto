@@ -4,13 +4,13 @@ import java.awt.EventQueue;
 import java.util.Date;
 
 import br.com.application.service.ServicoSelenium;
-import br.com.application.validation.HorarioValido;
 import br.com.application.view.MainViewApplication;
 
 public class ClockRunnable implements Runnable {  
    
 	private MainViewApplication view;
 	private ServicoSelenium servicoSelenium;
+	private VerificadorDeHorario verificadorDeHorario;
 	
 	public ClockRunnable(){
 		
@@ -18,7 +18,7 @@ public class ClockRunnable implements Runnable {
 	public ClockRunnable(MainViewApplication view){
 		this.servicoSelenium = new ServicoSelenium();
 		this.view = view;
-		
+		this.verificadorDeHorario = new VerificadorDeHorario();
 	}
 	
 	public void run() {  
@@ -28,7 +28,7 @@ public class ClockRunnable implements Runnable {
                     public void run() {  
                         view.setHora(new Date()); 
                        
-                        if(new HorarioValido().isHorarioValido(view.getLblHora().getText())){
+                        if(verificadorDeHorario.isHorarioValido(view.getLblHora().getText())){
                         	servicoSelenium.executaServicoSeleium();
                         }
                     }  
