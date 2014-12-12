@@ -10,7 +10,7 @@ public class FimAlmocoTimeValidator implements TimeValidator{
 	@Override
 	public boolean valida(String horario) {
 		
-		if(HorariosDePonto.pegaHorario(KEY_HORARIO).getRandomDateInicio().equals(horario) &&
+		if(HorariosDePonto.pegaHorario(KEY_HORARIO).getHorarioFim().equals(horario) &&
 				HorariosDePonto.pegaHorario(KEY_HORARIO).isHabilitado()){
 		
 			return true;

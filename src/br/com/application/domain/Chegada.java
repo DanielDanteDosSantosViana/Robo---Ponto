@@ -1,51 +1,63 @@
 package br.com.application.domain;
 
-import java.text.DateFormat;
+import java.util.Random;
 
 public class Chegada implements Horario{
 
- private DateFormat horarioPerfeito;
+	private String horarioInicio;
+	private String horarioFim;
+	private boolean habilitado;
 
-public DateFormat getHorarioPerfeito() {
-	return horarioPerfeito;
-}
+	public Chegada(){
+		this.setHorarioInicio(getRandomDateInicio());
+		this.setHorarioFim(getRandomDateFim());
+		this.setHabilitado(true);
+	}
+	
+ public String getRandomDateInicio() {
+		
+		Random gerador = new Random();
+		int segundoAleatorio = gerador.nextInt(10);
+		
+     String horarioAleatorio = "12:3"+segundoAleatorio+":00";
+		return  horarioAleatorio;
+	}
+	
+	public String getRandomDateFim() {
+		
+		Random gerador = new Random();
+		
+		int segundoAleatorio = gerador.nextInt(10);
+		String horarioAleatorio = "12:3"+segundoAleatorio+":00";
+		 
+		return horarioAleatorio;
+	}
 
-public void setHorarioPerfeito(DateFormat horarioPerfeito) {
-	this.horarioPerfeito = horarioPerfeito;
-}
 
-@Override
-public String getRandomDateInicio() {
-	// TODO Auto-generated method stub
-	return "";
-}
+	public boolean isHabilitado() {
+		return habilitado;
+	}
 
-@Override
-public String getRandomDateFim() {
-	// TODO Auto-generated method stub
-	return "";
-}
 
-@Override
-public String getInicio() {
-	// TODO Auto-generated method stub
-	return null;
-}
+	@Override
+	public void setHabilitado(boolean habilitado) {
+		this.habilitado =habilitado;
+		
+	}
 
-@Override
-public String getFim() {
-	// TODO Auto-generated method stub
-	return null;
-}
+	public String getHorarioInicio() {
+		return horarioInicio;
+	}
 
-@Override
-public boolean isHabilitado() {
-	// TODO Auto-generated method stub
-	return false;
-}
+	public void setHorarioInicio(String horarioInicio) {
+		this.horarioInicio = horarioInicio;
+	}
 
-@Override
-public void setHabilitado(boolean habilitado) {
+	public String getHorarioFim() {
+		return horarioFim;
+	}
 
-}
+	public void setHorarioFim(String horarioFim) {
+		this.horarioFim = horarioFim;
+	}
 }

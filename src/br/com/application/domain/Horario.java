@@ -3,8 +3,8 @@ package br.com.application.domain;
 public interface Horario {
 	 String getRandomDateInicio();
 	 String getRandomDateFim();
-	 String getInicio();
-	 String getFim();
+	 String getHorarioFim();
+	 String getHorarioInicio();
 	 boolean isHabilitado();
 	 void setHabilitado(boolean habilitado);
 }

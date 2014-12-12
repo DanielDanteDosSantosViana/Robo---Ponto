@@ -7,10 +7,15 @@ public class ChegadaCommand extends AbstractCommand{
 
 	@Override
 	public void run(boolean selected) {
-		if(!selected){
-			HorariosDePonto.desabilitaHorario("chegada");
+		if(selected){
+			HorariosDePonto.habilitaHorario("Chegada");
+			System.out.print(HorariosDePonto.pegaHorario("Chegada").isHabilitado());
+
+		}else{
+			HorariosDePonto.desabilitaHorario("Chegada");
+			System.out.print(HorariosDePonto.pegaHorario("Chegada").isHabilitado());
+			
 		}
-		
 	}
 
 }

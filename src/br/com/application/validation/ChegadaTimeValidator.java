@@ -6,14 +6,14 @@ public class ChegadaTimeValidator implements TimeValidator{
 
 	private TimeValidator proximo;
 	private final static String  KEY_HORARIO = "chegada";
-
+	
 	
 	@Override
 	public boolean valida(String horario) {
 		
-		if(HorariosDePonto.pegaHorario(KEY_HORARIO).getRandomDateInicio().equals(horario) &&
+		if(HorariosDePonto.pegaHorario(KEY_HORARIO).getHorarioInicio().equals(horario) &&
 				HorariosDePonto.pegaHorario(KEY_HORARIO).isHabilitado()){
-			
+		
 			return true;
 		
 		}else{

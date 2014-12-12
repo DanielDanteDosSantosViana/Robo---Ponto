@@ -1,52 +1,63 @@
 package br.com.application.domain;
 
-import java.text.DateFormat;
+import java.util.Random;
 
 public class Saida implements Horario{
 
-	private DateFormat horarioPerfeito;
+	private String horarioInicio;
+	private String horarioFim;
+	private boolean habilitado;
 
-	public DateFormat getHorarioPerfeito() {
-		return horarioPerfeito;
+	public Saida(){
+		this.setHorarioInicio(getRandomDateInicio());
+		this.setHorarioFim(getRandomDateFim());
+		this.setHabilitado(true);
 	}
-
-	public void setHorarioPerfeito(DateFormat horarioPerfeito) {
-		this.horarioPerfeito = horarioPerfeito;
+	
+ public String getRandomDateInicio() {
+		
+		Random gerador = new Random();
+		int segundoAleatorio = gerador.nextInt(10);
+		
+     String horarioAleatorio = "12:3"+segundoAleatorio+":00";
+		return  horarioAleatorio;
 	}
-
-	@Override
-	public String getRandomDateInicio() {
-		// TODO Auto-generated method stub
-		return "";
-	}
-
-	@Override
+	
 	public String getRandomDateFim() {
-		// TODO Auto-generated method stub
-		return "";
+		
+		Random gerador = new Random();
+		
+		int segundoAleatorio = gerador.nextInt(10);
+		String horarioAleatorio = "12:3"+segundoAleatorio+":00";
+		 
+		return horarioAleatorio;
 	}
 
-	@Override
-	public String getInicio() {
-		// TODO Auto-generated method stub
-		return "";
-	}
 
-	@Override
-	public String getFim() {
-		// TODO Auto-generated method stub
-		return "";
-	}
-
-	@Override
 	public boolean isHabilitado() {
-		// TODO Auto-generated method stub
-		return false;
+		return habilitado;
 	}
+
 
 	@Override
 	public void setHabilitado(boolean habilitado) {
-		// TODO Auto-generated method stub
+		this.habilitado =habilitado;
 		
-	} 
+	}
+
+	public String getHorarioInicio() {
+		return horarioInicio;
+	}
+
+	public void setHorarioInicio(String horarioInicio) {
+		this.horarioInicio = horarioInicio;
+	}
+
+	public String getHorarioFim() {
+		return horarioFim;
+	}
+
+	public void setHorarioFim(String horarioFim) {
+		this.horarioFim = horarioFim;
+	}
 }

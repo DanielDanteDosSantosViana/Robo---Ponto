@@ -16,8 +16,8 @@ public class HorariosDePonto {
 	static{
 			horarios = new HashMap<String, Horario>(); 
 			horarios.put("almoco", new Almoco());
-			horarios.put("saida", new Chegada());
-			horarios.put("chegada", new Saida());
+			horarios.put("saida", new Saida());
+			horarios.put("chegada", new Chegada());
 			
 	}
 	
@@ -34,6 +34,13 @@ public static synchronized void desabilitaHorario(String keyHorario){
 	
 	Horario temporario = horarios.get(keyHorario);
 	temporario.setHabilitado(false);
+	 
+}
+
+public static synchronized void habilitaHorario(String keyHorario){
+	
+	Horario temporario = horarios.get(keyHorario);
+	temporario.setHabilitado(true);
 	 
 }
 

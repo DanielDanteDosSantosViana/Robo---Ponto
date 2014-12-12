@@ -13,15 +13,15 @@ import br.com.application.infra.AbstractCommand;
 public class MainController {
 
 	
-	private HashMap<String,AbstractCommand> commands;	
+	private HashMap<String,AbstractCommand> commands = new HashMap<String, AbstractCommand>();	
 
 	
 	public MainController() {
 		
-		commands.put("chegada", new ChegadaCommand() );
-		commands.put("almoco Inicio", new InicioAlmocoCommand() );
-		commands.put("almoco Fim", new FimAlmocoCommand());
-		commands.put("saida", new SaidaCommand());
+		commands.put("Chegada", new ChegadaCommand() );
+		commands.put("Almoco Inicio", new InicioAlmocoCommand() );
+		commands.put("Almoco Fim", new FimAlmocoCommand());
+		commands.put("Saida", new SaidaCommand());
 		
 	}
 	
