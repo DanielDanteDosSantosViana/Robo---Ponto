@@ -6,6 +6,8 @@ import java.awt.Toolkit;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -60,6 +62,7 @@ public class MainViewApplication extends JFrame {
 	  	    addListener(almocoInicio);
 	  	    addListener(almocoFim);
 	  	    addListener(saida);
+	  	    addJMenuItemListener(configuracao);
 	  	    
 	  	    
 	  	    setLayout(new FlowLayout());  
@@ -175,6 +178,46 @@ public class MainViewApplication extends JFrame {
 	    		public void itemStateChanged(ItemEvent e) {
 	    			new MainController().executeChangeJChecked(check);
 	    		}
+	    	});
+	    	
+	    }
+
+		private void openConfiguration() {
+			new ConfigurationViewApplication();
+			
+		}	    
+	    public void addJMenuItemListener(final JMenuItem itemMenu){
+	    	itemMenu.addMouseListener(new MouseListener() {
+				
+				@Override
+				public void mouseReleased(MouseEvent arg0) {
+					// TODO Auto-generated method stub
+				}
+				
+				@Override
+				public void mousePressed(MouseEvent arg0) {
+				  openConfiguration();
+					
+				}
+				
+				@Override
+				public void mouseExited(MouseEvent arg0) {
+			
+					
+				}
+				
+				@Override
+				public void mouseEntered(MouseEvent arg0) {
+					
+					
+				}
+				
+				@Override
+				public void mouseClicked(MouseEvent arg0) {
+					
+					
+				}
+
 	    	});
 	    	
 	    }

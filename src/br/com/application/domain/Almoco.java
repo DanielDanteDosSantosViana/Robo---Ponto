@@ -18,9 +18,9 @@ public class Almoco implements Horario{
 	public String getRandomDateInicio() {
 		
 		Random gerador = new Random();
-		int segundoAleatorio = gerador.nextInt(10);
+		int minutoAleatorio = gerador.nextInt(10);
 		
-        String horarioAleatorio = "12:3"+segundoAleatorio+":00";
+        String horarioAleatorio = "12:3"+minutoAleatorio+":00";
 		return  horarioAleatorio;
 	}
 	
@@ -28,8 +28,8 @@ public class Almoco implements Horario{
 		
 		Random gerador = new Random();
 		
-		int segundoAleatorio = gerador.nextInt(10);
-		String horarioAleatorio = "12:3"+segundoAleatorio+":00";
+		int minutoAleatorio = gerador.nextInt(10);
+		String horarioAleatorio = "13:3"+minutoAleatorio+":00";
 		 
 		return horarioAleatorio;
 	}

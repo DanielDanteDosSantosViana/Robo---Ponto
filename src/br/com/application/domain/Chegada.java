@@ -17,20 +17,14 @@ public class Chegada implements Horario{
  public String getRandomDateInicio() {
 		
 		Random gerador = new Random();
-		int segundoAleatorio = gerador.nextInt(10);
+		int minutoAleatorio = gerador.nextInt(10);
 		
-     String horarioAleatorio = "12:3"+segundoAleatorio+":00";
+        String horarioAleatorio = "09:1"+minutoAleatorio+":00";
 		return  horarioAleatorio;
 	}
 	
 	public String getRandomDateFim() {
-		
-		Random gerador = new Random();
-		
-		int segundoAleatorio = gerador.nextInt(10);
-		String horarioAleatorio = "12:3"+segundoAleatorio+":00";
-		 
-		return horarioAleatorio;
+		return "";
 	}
 
 

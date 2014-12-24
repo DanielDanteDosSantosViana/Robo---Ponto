@@ -7,8 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import br.com.application.domain.Usuario;
+
 
 public class ServicoSelenium {
+	
+	private ServicoDeConfiguracao configuracao = new ServicoDeConfiguracao();
 
 	public  void executaServicoSeleium() {
 		  
@@ -27,10 +31,13 @@ public class ServicoSelenium {
 		  WebElement button = driver.findElement(By.id("ext-gen59"));//button
 
 		 
+		  Usuario usuario = configuracao.getUsuarioXML();
 		  
-		  inputFunction.sendKeys("1");
-		  inputUsuario.sendKeys("291029");
-		  inputSenha.sendKeys("134");
+		  inputFunction.sendKeys(usuario.getFuncao());
+		  inputUsuario.sendKeys(usuario.getLogin());
+		  inputSenha.sendKeys(usuario.getSenha());
+		  
+		  
 		  button.click();
 		  
 		

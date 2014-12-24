@@ -1,6 +1,6 @@
 package br.com.application.validation;
 
-import br.com.application.infra.HorariosDePonto;
+import br.com.application.factory.HorariosDePontoFactory;
 
 public class SaidaTimeValidator implements TimeValidator {
 
@@ -10,8 +10,8 @@ public class SaidaTimeValidator implements TimeValidator {
 	@Override
 	public boolean valida(String horario) {
 		
-		if(HorariosDePonto.pegaHorario(KEY_HORARIO).getHorarioInicio().equals(horario) &&
-				HorariosDePonto.pegaHorario(KEY_HORARIO).isHabilitado()){
+		if(HorariosDePontoFactory.pegaHorario(KEY_HORARIO).getHorarioInicio().equals(horario) &&
+				HorariosDePontoFactory.pegaHorario(KEY_HORARIO).isHabilitado()){
 		
 			return true;
 		
