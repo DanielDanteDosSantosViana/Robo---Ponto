@@ -6,72 +6,72 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import br.com.application.domain.Usuario;
-
 import com.thoughtworks.xstream.XStream;
 
-public class Converter {
-	private Usuario usuario;
+public class Converter<T> {
 	
-	public Converter(Usuario usuario){
-		this.usuario = usuario;
-		
+	private T conteudo;
+	
+	public Converter(T conteudo){
+		this.conteudo = conteudo;
 	}
+	
 	public Converter(){
+		
 	}
 	
 	
-	public Usuario convertXMLToUser() {
+	  public T convertXMLToObject(String alias , Class<T> classe) {
+			
+			try {
+				
+				XStream xStream = new XStream();
+				xStream.alias(alias, classe);
+				
+				String pathDiretorioAtual = new File(".").getCanonicalPath();
+				File arquivoDeConfiguracao = new File(pathDiretorioAtual+"/configuracao.xml");
+				
+				
+				@SuppressWarnings("unchecked")
+				T retornoConteudoEmObjeto = (T)xStream.fromXML(arquivoDeConfiguracao);
+				
+				return retornoConteudoEmObjeto;
+				
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+				return null;
+			}
 	
-		try {
-		
-			XStream xStream = new XStream();
-			xStream.alias("usuario", Usuario.class);
 			
-			String pathDiretorioAtual = new File(".").getCanonicalPath();
-			File arquivoDeConfiguracao = new File(pathDiretorioAtual+"/configuracao.xml");
-			
-			
-			Usuario usuario = (Usuario)xStream.fromXML(arquivoDeConfiguracao);
-			
-			return usuario;
-			
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-			return null;
 		}
-
-		
-	}
-
-	public void generateXMl() {
-		
-		XStream xStream = new XStream();
-		xStream.alias("usuario", Usuario.class);
-		String usuarioXML = xStream.toXML(this.usuario);
-		try {
+	
+		public void generateXMl(String alias) {
 			
+			XStream xStream = new XStream();
+			xStream.alias(alias, this.conteudo.getClass());
+			String usuarioXML = xStream.toXML(this.conteudo);
 			
+			try {
+				String pathDiretorioAtual = new File(".").getCanonicalPath();
+				File arquivoDeConfiguracao = new File(pathDiretorioAtual+"/configuracao.xml");
+				
+				FileWriter fw = new FileWriter(arquivoDeConfiguracao.getAbsolutePath());
+				BufferedWriter bw = new BufferedWriter(fw);
+				bw.write(usuarioXML);
+				bw.close();
+				
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
 			
-			String pathDiretorioAtual = new File(".").getCanonicalPath();
-			File arquivoDeConfiguracao = new File(pathDiretorioAtual+"/configuracao.xml");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}	
 			
-			FileWriter fw = new FileWriter(arquivoDeConfiguracao.getAbsolutePath());
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(usuarioXML);
-			bw.close();
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		
-		} catch (IOException e) {
-			e.printStackTrace();
-		}	
-		
-	}
+		}
 	
 
+	
 	
 	
 }

@@ -40,6 +40,9 @@ public class ServicoSelenium {
 		  
 		  button.click();
 		  
+		  driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		  
+		  driver.close();
 		
 		            
 	}

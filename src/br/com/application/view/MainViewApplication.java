@@ -8,7 +8,8 @@ import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.net.URL;
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -36,7 +37,7 @@ public class MainViewApplication extends JFrame {
 	    private JMenu menu;
 	    private JMenuItem configuracao;
 	    private Image icone;
-	    private URL caminhoImagem;
+	    private String caminhoImagem;
 	    private JCheckBox almocoInicio;
 		private JCheckBox almocoFim;
 		private JCheckBox chegada;
@@ -44,9 +45,10 @@ public class MainViewApplication extends JFrame {
 	  
 	    // Formatador da hora  
 	    private static final DateFormat FORMATO = new SimpleDateFormat("HH:mm:ss");  
-	    private static final String PATH_ICONE =  "br/com/img/favicon.jpg";
+	    private static final String PATH_ICONE =  "/src/br/com/img/favicon.jpg";
 	  
-	    public MainViewApplication() {  
+	    public MainViewApplication() throws IOException { 
+	    	
 	        super("WALL.E - 1.0");  
 	        caminhoImagem = getPathImage(PATH_ICONE) ;
 	        icone = Toolkit.getDefaultToolkit().getImage(caminhoImagem);
@@ -81,8 +83,9 @@ public class MainViewApplication extends JFrame {
 	        clockThread.start();
 		}  
 	    
-	    private URL getPathImage(String nome){
-	    	 return  this.getClass().getClassLoader().getResource(nome);  
+	    private String getPathImage(String nome) throws IOException{
+	    	 String pathDiretorioAtual = new File(".").getCanonicalPath();
+	    	 return  pathDiretorioAtual+nome;  
 		     
 	    }
 	    

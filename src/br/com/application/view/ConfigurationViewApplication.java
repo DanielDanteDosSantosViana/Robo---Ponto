@@ -87,13 +87,13 @@ public class ConfigurationViewApplication extends JDialog{
 	public void actionPerformed(ActionEvent event) {
 	    Object source = event.getSource();
 	    if (source instanceof JButton) 
-	    	System.out.println("You clicked a button!");
+	    	System.out.println("você clicou no button!");
 	}
 	
 	
 	private void salvar() {
-			Usuario usuario = new Usuario(login.getText().toString(), 
-					 senha.getText().toString(), funcao.getText().toString());
+			Usuario usuario = new Usuario(funcao.getText().toString(),login.getText().toString(), 
+					 senha.getText().toString());
 			 configurationService.criaUsuarioXML(usuario);
 	}
 	
@@ -110,6 +110,7 @@ public class ConfigurationViewApplication extends JDialog{
 				
 				if(button.getText().equals(salvar.getText())){
 					salvar();
+					ConfigurationViewApplication.this.dispose();
 				}
 				
 				if(button.getText().equals(cancelar.getText())){
