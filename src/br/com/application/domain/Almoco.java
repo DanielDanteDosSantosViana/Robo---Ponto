@@ -29,7 +29,7 @@ public class Almoco implements Horario{
 		Random gerador = new Random();
 		
 		int minutoAleatorio = gerador.nextInt(10);
-		String horarioAleatorio = "14:01"+":00";
+		String horarioAleatorio = "13:3"+minutoAleatorio+":00";
 		 
 		return horarioAleatorio;
 	}
