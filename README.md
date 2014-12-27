@@ -10,5 +10,7 @@ Projeto Ponto Automático
 </pre>
 
 ##### Running the application
-
-
+<pre>
+mvn package
+mvn exec:java
+</pre>
